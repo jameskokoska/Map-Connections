@@ -1,0 +1,154 @@
+.map{
+  background-color: #94bd9f;
+  box-shadow: 2px 5px 5px 2px #46464748;
+  border-radius:1%
+}
+
+.map-marker{
+  position: absolute;
+  z-index: 5;
+  border-radius:50%;
+  transition: transform 0.5s;
+  padding:10px;
+  margin:-10px;
+}
+
+.map-marker:hover{
+  transform: scale(1.5);
+  transition: transform 0.4s;
+  cursor: pointer;
+}
+
+.map-marker-icon{
+  transform: translateY(-14px) rotate(-45deg);
+  border-radius: 50% 50% 50% 0;
+  background-color: white;
+  width: 19px;
+  height: 19px;
+  box-shadow: 3px 2px 7px 2px #46464773;
+  text-align: center;
+  font-weight: 600;
+  text-indent: 0;
+}
+
+.map-marker-label{
+  pointer-events: none;
+  background-color: #ffffff;
+  color: black;
+  text-align: center;
+  border-radius: 7px;
+  font-size: 20px;
+  position: absolute;
+  z-index: 5;
+  text-indent: 0;
+  transition: opacity 0.5s;
+  transform: translateX(calc(-50% + 10px)) translateY(-50%) scale(0.5);
+  width: 200px;
+  padding:5px;
+  opacity:0;
+}
+
+.map-marker-label p{
+  margin:10px;
+  margin-top: 0px;
+}
+
+.map-marker-label h3{
+  margin:10px;
+  margin-bottom: 5px;
+}
+
+.map-marker:hover .map-marker-label{
+  transition: opacity 0.5s;
+  opacity: 1;
+}
+
+.map{
+  overflow: hidden;
+  position: relative;
+}
+
+.map-img{
+  overflow: hidden;
+}
+
+.map-img-invert{
+  filter: invert();
+}
+
+.map-connection-wrap{
+  height:5px;
+  position: absolute;
+  z-index: 1;
+  border-radius: 10px;
+  transform-origin: left;
+  transition: height 0.5s;
+  padding: 10px 0px;
+}
+
+.map-connection{
+  height:5px;
+  background-color: #ffffff;
+  z-index: 1;
+  border-radius: 10px;
+  box-shadow: 3px 1px 7px 2px #46464773;
+  transition: transform 0.5s;
+  cursor: pointer;
+  text-indent: 0;
+  text-align: center;
+  font-weight: 600;
+  text-shadow: 0px 0px 4px white;
+  font-size: 20px;
+}
+
+.map-connection-wrap:hover .map-connection{
+  transform: scaleY(2);
+  transition: transform 0.2s;
+}
+
+.map-connection-icon{
+  position: absolute;
+  top:0px;
+  z-index: 4;
+  transform-origin: center;
+  pointer-events: none;
+}
+
+.map-moving-icon{
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 4;
+  top:0px;
+  transform-origin: center;
+  pointer-events: none;
+}
+
+#map-connection-popup{
+  pointer-events: none;
+  background-color: #ffffff;
+  color: black;
+  text-align: center;
+  border-radius: 7px;
+  position: absolute;
+  z-index: 5;
+  text-indent: 0;
+  padding:5px;
+  box-shadow: 3px 1px 7px 2px #46464773;
+  opacity: 0;
+  transition: opacity 0.25s;
+  font-size: 16px;
+  max-width: 400px;
+}
+
+#map-connection-popup p{
+  margin:10px;
+  margin-top: 0px;
+}
+
+#map-connection-popup h3{
+  margin:10px;
+  margin-bottom: 5px;
+}
