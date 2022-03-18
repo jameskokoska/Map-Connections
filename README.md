@@ -21,3 +21,6 @@ Documentation available on the demo page: https://map-connections-library.heroku
 * World map image from https://mapsvg.com/maps/world
 * Package icon from Chanut-is-Industries https://www.flaticon.com
 * Navigation route icon (modified) from Freepik https://www.flaticon.com
+* Airplane icon from Freepik https://www.flaticon.com
+* Car icon (modified) from Freepik https://www.flaticon.com
+* Cruise icon (modified) from Freepik https://www.flaticon.com

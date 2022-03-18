@@ -115,3 +115,39 @@ mapExample.setConnectionIconColor(0,"#898A64")
 mapExample.addConnection(1,2,true,"package-icon", 5000)
 mapExample.setConnectionInfo(1, "Package","Your package is on the way from Toronto!")
 mapExample.setConnectionColor(1, "#DADD26")
+
+//Create a new 1000px wide map
+const mapExampleTravel = new MapConnections('map-example-travel',1000)
+//Set the crop and zoom level to fit the locations
+mapExampleTravel.setCropSize(1000, 600)
+mapExampleTravel.setMapShift(-250,-500)
+mapExampleTravel.setMapZoom(2)
+mapExampleTravel.setBackgroundColor("#6F5088")
+//Add the first marker
+mapExampleTravel.addMarker(450,360)
+mapExampleTravel.setMarkerInfo(0, "Start","Your journey starts here!")
+mapExampleTravel.setMarkerColor(0,"#7FE96A")
+//Add the second marker
+mapExampleTravel.addMarkerApproxLongLat(35.6532,20.3832)
+mapExampleTravel.setMarkerInfo(1, "","Time to get on the cruise!")
+mapExampleTravel.setMarkerColor(1,"#E1E96A")
+//Add the third marker
+mapExampleTravel.addMarker(200,260)
+mapExampleTravel.setMarkerInfo(2, "Pit Stop!","Time to get in the car!")
+mapExampleTravel.setMarkerColor(2,"#E1E96A")
+//Add the destination marker
+mapExampleTravel.addMarker(150,160)
+mapExampleTravel.setMarkerInfo(3, "End","")
+mapExampleTravel.setMarkerColor(3,"#DB5567")
+//Add the connections
+mapExampleTravel.addConnection(0,1,true,"airplane-icon", 10000)
+mapExampleTravel.setConnectionColor(0,"#FFFFFF60")
+mapExampleTravel.setConnectionInfo(0, "Plane travel","This flight will be quick!")
+
+mapExampleTravel.addConnection(1,2,true,"cruise-icon", 30000)
+mapExampleTravel.setConnectionColor(1,"#7789EBA6")
+mapExampleTravel.setConnectionInfo(1, "Cruise","Enjoy the sights, this will take a while")
+
+mapExampleTravel.addConnection(2,3,true,"car-icon", 35000)
+mapExampleTravel.setConnectionColor(2,"#EBC677A6")
+mapExampleTravel.setConnectionInfo(2, "Car","The final stretch!")

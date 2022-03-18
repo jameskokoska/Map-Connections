@@ -3,6 +3,7 @@
 //Future features
 // Change map image
 // Change styles easier (popup styles)
+// Change styles for icons etc
 // Remove connections, remove points
 // throw warnings - e.g. when index out of range
 // add multiple connections by providing connection objects
@@ -12,6 +13,7 @@
 // set hitbox size
 // legend
 // rotate icon along path (airplane faces right way for e.g.)
+// dont use .style (use .style.property) (because .style overwrites other styles)
 
 function MapConnections(divId, width, whiteMap) {
   this.divId = divId
@@ -53,8 +55,6 @@ MapConnections.prototype = {
       description: undefined,
       color: undefined,
       location: {top:undefined, left:undefined},
-      changeX: undefined,
-      changeY: undefined,
     }
 
     //Connection data structure:
@@ -67,6 +67,8 @@ MapConnections.prototype = {
       iconDiv: undefined,
       title: undefined,
       description: undefined,
+      changeX: undefined,
+      changeY: undefined,
     }
 
     const popupDiv = document.createElement('div')
