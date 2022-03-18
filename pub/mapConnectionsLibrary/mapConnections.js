@@ -1,4 +1,3 @@
-/* JS Libraries */
 "use strict";
 
 //Future features
@@ -36,7 +35,7 @@ MapConnections.prototype = {
     } else {
       mapImg.className = 'map-img'
     }
-    mapImg.src = "./mapConnectionsLibrary/world-outline.svg"
+    mapImg.src = "https://map-connections-library.herokuapp.com/mapConnectionsLibrary/world-outline.svg"
     mapDiv.append(mapImg)
 
     const map = document.getElementById(divId)
