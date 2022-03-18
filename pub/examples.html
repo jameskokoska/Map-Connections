@@ -55,7 +55,7 @@ MapConnections.addMarkerApproxLongLat: function(<span class="argument">longitude
 map.addMarkerApproxLongLat(27,108)
 map.addConnection(0,1)
 </code></pre>
-    <p>Will create the map below:</p>
+    <p>Will create the map below with 2 markers and a connection line (with a dot animating along the path):</p>
     <div id="map-getting-started2"></div>
     <br/>
     <h2>Debugging Tools</h2>
@@ -90,7 +90,7 @@ MapConnections.hideAllConnectionIndices: function()
 map.showAllMarkerIndices()
 map.hideMarkerIndex(0)
 </code></pre>
-    <p>Will create the map below:</p>
+    <p>Will create the map below showing the connection and index vertices (while hiding the 0th marker index):</p>
     <div id="map-getting-started3"></div>
     <br/>
     <h3>Starting/Stopping the animation</h3>
@@ -102,7 +102,7 @@ MapConnections.stopAnimation: function(<span class="argument">connectionIndex</s
     <pre><code>MapConnections.addConnection: function(<span class="argument">marker index start</span>,<span class="argument">marker index destination</span>,<span class="argument">animation (bool)</span>,<span class="argument">custom icon id</span>,<span class="argument">animation duration (milliseconds)</span>)</code></pre>
     <h4>Example:</h4>
     <pre><code>map.stopAnimation(0)</code></pre>
-    <p>Will create the map below:</p>
+    <p>Will create the map below with a stopped animation (no animated dot):</p>
     <div id="map-getting-started4"></div>
     <br>
     <h3>Hover Tooltips</h3>
@@ -113,7 +113,7 @@ MapConnections.setConnectionInfo: function(<span class="argument">connectionInde
     <h4>Example:</h4>
     <pre><code>map.setConnectionInfo(0,"Connection Title","Some description here.")
 map.setMarkerInfo(0,"Marker Title","Some description here.")</code></pre>
-    <p>Will create the map below:</p>    
+    <p>Will create the map below with hover information (hover over the markers and connection line to see the title and descriptions!):</p>    
     <div id="map-getting-started5"></div>
     <br>
 
@@ -164,7 +164,7 @@ MapConnections.setMapZoom: function(<span class="argument">zoom (percent in deci
     <h4>Example:</h4>
     <pre><code>&lt;img id="<span class="argument">package-icon-example</span>" src="package.png" width="30px" height="30px">&lt;/img&gt;</code></pre>
     <pre><code>map.addConnection(0,1,true,"<span class="argument">package-icon-example</span>")</code></pre>
-    <p>Will create the map below:</p>    
+    <p>Will create the map below with a custom package icon moving along the connection line:</p>    
     <div id="map-getting-started6"></div>
     <img id="package-icon-example" src="package.png" width="30px" height="30px"></img>
     <br>
