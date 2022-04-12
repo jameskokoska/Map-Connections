@@ -119,7 +119,7 @@ mapGettingStarted7.setMarkerInfo({markerIndex:0,title:"Marker Title",description
 const mapGettingStarted8 = new MapConnections({divId:'map-getting-started8',width:400})
 mapGettingStarted8.addMarker({top:200,left:100})
 mapGettingStarted8.addMarkerApproxLongLat({longitude:27,latitude:108})
-mapGettingStarted8.addConnection({markerIndexStart:0,markerIndexEnd:1,iconId:"package-icon-example",animationDuration:5000, rotateIcon: true})
+mapGettingStarted8.addConnection({markerIndexStart:0,markerIndexEnd:1, animationDuration:5000, iconColor:'red'})
 mapGettingStarted8.showAllConnectionIndices()
 mapGettingStarted8.showAllMarkerIndices()
 mapGettingStarted8.hideMarkerIndex({markerIndex:0})

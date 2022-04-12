@@ -131,17 +131,19 @@
   title: string?,
   description: string?,
   color: string? (color),
+  iconColor: string? (color),
 })</code></pre>
     <p><code>markerIndexStart</code>: The first index as the starting point for the connection. The index of the marker in the <code>markers</code> list of marker objects.</p>
     <p><code>markerIndexEnd</code>: The last index as the ending point for the connection. The index of the marker in the <code>markers</code> list of marker objects.</p>
     <p><code>animation</code>: Determines if a dot or icon should be animated along the connection line.</p>
     <p><code>iconId</code>: The custom icon div's ID from HTML.</p>
-    <p><code>animationDuration</code>: The length of the icons animation along the connection path.</p>
+    <p><code>animationDuration</code>: The length of the icons animation along the connection path in milliseconds.</p>
     <p><code>rotateIcon</code>: Determines if the icon should be rotated to face along the direction of the connection line.</p>
     <p><code>width</code>: How thick the connection line should be.</p>
     <p><code>title</code>: The title to show when the user hovers over the connection, and to show in the legend.</p>
     <p><code>description</code>: The description to show when the user hovers over the connection.</p>
     <p><code>color</code>: The color to set the connection line to. Follows CSS standards.</p>
+    <p><code>iconColor</code>: The color to set the connection line's animated dot icon to. Follows CSS standards.</p>
     <div class="small-break"></div>
     <h2>Set Connection Info: <code>setConnectionInfo</code></h2>
 <pre class="javascript"><code>MapConnections.setConnectionInfo({

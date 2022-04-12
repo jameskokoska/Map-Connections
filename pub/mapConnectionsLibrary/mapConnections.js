@@ -330,6 +330,9 @@ MapConnections.prototype = {
     if(args.color){
       this.setConnectionColor({connectionIndex:this.connections.length-1, color:args.color})
     }
+    if(args.iconColor){
+      this.setConnectionIconColor({connectionIndex:this.connections.length-1, color:args.iconColor})
+    }
     if(args.title || args.description){
       this.setConnectionInfo({connectionIndex:this.connections.length-1, title:args.title, description:args.description})
     }
