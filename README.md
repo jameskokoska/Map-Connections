@@ -19,7 +19,7 @@ In the `head` tag in your HTML, import the <i>Map Connections</i> library and CS
 ```html
 <head>
   <link rel="stylesheet" href="https://map-connections-library.herokuapp.com/mapConnectionsLibrary/mapConnectionsStyles.css">
-  <script defer type="text/javascript" src='https://map-connections-library.herokuapp.com/mapConnectionsLibrary/mapConnections.js'>
+  <script defer type="text/javascript" src='https://map-connections-library.herokuapp.com/mapConnectionsLibrary/mapConnections.js'></script>
   ...
 </head>
 ```
