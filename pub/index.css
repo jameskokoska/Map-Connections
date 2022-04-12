@@ -28,11 +28,13 @@ body {
 .header{
   font-size: 40px;
   margin: 0px;
+  margin-top: 15px;
 }
 .subheader{
   font-size: 30px;
   margin: 0px;
   margin-bottom: 20px;
+  margin-top: 15px;
 }
 .header-content{
   text-align: center;
@@ -43,9 +45,10 @@ body {
 }
 h1, h2, h3 {
   margin:0px;
-  margin-bottom: 2px;
+  margin-bottom: 10px;
   margin-top: 5px;
   font-family: 'SofiaPro-Black', sans-serif;
+  line-height: 1.05;
 }
 h4{
   margin:0px;
