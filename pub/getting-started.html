@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
     <script>hljs.highlightAll(); hljs.configure({ignoreUnescapedHTML:true})</script>
-
   </head>
   <body>
     <div class="navbar">
@@ -28,14 +27,14 @@
           <p>Home</p>
         </div>
       </a>
-      <a href="./installation.html">
-        <div class="button button-navbar">
-          <p>Installation</p>
-        </div>
-      </a>
       <a href="./getting-started.html">
         <div class="button button-navbar button-selected">
           <p>Getting Started</p>
+        </div>
+      </a>
+      <a href="./starter-guide.html">
+        <div class="button button-navbar">
+          <p>Starter Guide</p>
         </div>
       </a>
       <a href="./examples.html">
@@ -55,243 +54,44 @@
       <h2 class="subheader">Getting Started</h2>
       <br>
     </div>
+    <h1>Installing the Library</h1>
+    <h2>Add the Library and Depend on it</h2>
+    <p>In the <code>head</code> tag in your HTML, import the <i>Map Connections</i> library and CSS styles:</p>
 
-    <h2>Creating the Map</h2>
-    <p>Create a div to attach the map to. Pass in the id and width size (in pixels) when creating a map in your JavaScript. Create the map by creating a <code>MapConnections</code> object. </p>
-<pre class="javascript"><code>new MapConnections({
-  divId: string,
-  width: int,
-  whiteMap: bool? = false,
-  mapType: string? = "outline" : "outline" | "outlineFilled" | "filled",
-  imgFilter: string? = "" : CSS Filter,
-})</code></pre>
-    <h4>Example:</h4>
-    <p>Will create the map below with width 400px:</p>
-    <pre class="HTML"><code>&lt;div id="<span class="argument">my-map</span>"&gt;&lt;/div&gt;</code></pre>
-    <pre class="javascript"><code>const map = new MapConnections({ divId:'my-map', width:400 })</code></pre>
-    <div id="map-getting-started"></div>
-    
-    <br/>
-    <h2>Creating Markers and Connections</h2>
-    <p>You can add markers by calling <code>addMarker</code> or <code>addMarkerApproxLongLat</code></p>
-<pre class="javascript"><code>MapConnections.addMarker({
-  top: int,
-  left: int,
-  title: string?,
-  description: string?,
-  color: string? (color),
-})</code></pre>
-<pre class="javascript"><code>MapConnections.addMarkerApproxLongLat({
-  top: int,
-  left: int,
-  title: string?,
-  description: string?,
-  color: string? (color),
-})</code></pre>
-    <p>You can add connections by calling <code>addConnection</code></p>
-    <p>Specify 2 marker indices (start and end), if you want an animation initially (optional), the custom icon id (optional - leave as empty string if none), and the animation duration (milliseconds)</p>
-<pre class="javascript"><code>MapConnections.addConnection({
-  markerIndexStart: int,
-  markerIndexEnd: int,
-  animation: bool? = true,
-  iconId: string? : div ID for custom icon,
-  animationDuration: int? = 2500,
-  rotateIcon: bool? = false,
-  width: int? = 5,
-  title: string?,
-  description: string?,
-  color: string? (color),
-  iconColor: string? (color),
-})</code></pre>
-    <h4>Example:</h4>
-    <p>Will create the map below with 2 markers (with a relative location points, and at a longitude/latitude point) and a connection line (with a dot animating along the path):</p>
-    <pre class="javascript"><code>map.addMarker({ top:200, left:100 })
+    <pre><code>&lt;head&gt;
+  &lt;link rel="stylesheet" href=<span class="argument">"https://map-connections-library.herokuapp.com/mapConnectionsLibrary/mapConnectionsStyles.css"</span>&gt;
+  &lt;script defer type="text/javascript" src=<span class="argument">'https://map-connections-library.herokuapp.com/mapConnectionsLibrary/mapConnections.js'</span>&gt;</script>
+  ...
+&lt;/head&gt;</code></pre>
+  <p>There are no other dependencies required.</p>
+  <div class="small-break"></div>
+  <h1>Create a Simple Map</h1>
+  <p>Add the HTML to your body, pass in the div ID when creating the map with JavaScript.</p>
+  <pre class=""html><code>&lt;div id="map-div"&gt;&lt;/div&gt;</code></pre>
+  <pre><code>const map = new MapConnections({ divId:'map-div', width:400 })
+map.addMarker({ top:200, left:100, title:"Marker Title", description:"Some description here." })
 map.addMarkerApproxLongLat({ longitude:27, latitude:108 })
-map.addConnection({ markerIndexStart:0, markerIndexEnd:1 })
-</code></pre>
-    <div id="map-getting-started2"></div>
-    <br/>
-    <h2>Debugging Tools</h2>
-    <p>To get a list of all the generated marker objects, access the class variable <code>markers</code> (list of objects).</p>
-    <p>To get a list of all the generated connection objects, access the class variable <code>connections</code>  (list of objects).</p>
-    <h4>Example:</h4>
-    <pre class="javascript"><code>//Get number of current markers
-console.log(map.markers.length)
->> 2
-// Get number of current connections
-console.log(map.connections.length)
->> 1
-// Get all marker objects
-console.log(map.connections)
-// Get all connection objects
-console.log(map.connections)
-</code></pre>
-    <p>You can visually display the indices of the connections and the markers by using the functions <code>showMarkerIndex</code> <code>showAllMarkerIndices</code> <code>showConnectionIndex</code> <code>showAllConnectionIndices</code>. This can help indicate which markers to specify for a specific connection.</p>
-    <p>To remove the indices you can use the functions <code>hideMarkerIndex</code> <code>hideAllMarkerIndices</code> <code>hideConnectionIndex</code> <code>hideAllConnectionIndices</code></p>
-<pre class="javascript"><code>MapConnections.showAllMarkerIndices()
-MapConnections.showMarkerIndex({ markerIndex: int })
-MapConnections.showAllConnectionIndices()
-MapConnections.showConnectionIndex({ connectionIndex: int })</code></pre>
-<pre class="javascript"><code>MapConnections.hideAllMarkerIndices()
-MapConnections.hideMarkerIndex({ markerIndex: int })
-MapConnections.hideAllConnectionIndices()
-MapConnections.hideConnectionIndex({ connectionIndex: int })</code></pre>
-    <h4>Example:</h4>
-    <p>Will create the map below showing the connection and index vertices (while hiding the 0th marker index):</p>
-    <pre class="javascript"><code>map.showAllConnectionIndices()
-map.showAllMarkerIndices()
-map.hideMarkerIndex({ markerIndex: 0 })
-</code></pre>
-    <div id="map-getting-started3"></div>
-    <div class="button smaller" id="toggle-marker-indices" onclick="toggleMarkerIndices()">
-      <p>Hide All Marker Indices</p>
-    </div>
-    <div class="button smaller" id="toggle-connection-indices" onclick="toggleConnectionIndices()">
-      <p>Hide All Connection Indices</p>
-    </div>
-    <br/>
-    <h2>Starting/Stopping the Animation</h2>
-    <p>You can start and stop the animation by calling the function <code>startAnimation</code> and <code>stopAnimation</code> respectively</p>
-<pre class="javascript"><code>MapConnections.startAnimation({ connectionIndex: int })
-MapConnections.stopAnimation({ connectionIndex: int })</code></pre>
-    <p>or you can disable the animation initially by setting <code>animation</code> to <i>false</i> when adding a connection</p>
-<pre class="javascript"><code>MapConnections.addConnection({
-  markerIndexStart: int,
-  markerIndexEnd: int,
-  animation: bool? = true,
-  iconId: string? : div ID for custom icon,
-  animationDuration: int? = 2500,
-  rotateIcon: bool? = false,
-  width: int? = 5,
-  title: string?,
-  description: string?,
-  color: string? (color),
-  iconColor: string? (color),
+map.addConnection({
+  markerIndexStart: 0,
+  markerIndexEnd: 1,
+  animationDuration: 5000,
+  iconColor: 'red',
+  title: "Connection Title",
+  description: "Some description here."
 })</code></pre>
-    <h4>Example:</h4>
-    <pre class="javascript"><code>map.startAnimation({ connectionIndex:0 })</code></pre>
-    <pre class="javascript"><code>map.stopAnimation({ connectionIndex:0 })</code></pre>
-    <div id="map-getting-started4"></div>
-    <div class="button smaller" id="toggle-animation" onclick="toggleAnimation()">
-      <p>Stop Animation</p>
-    </div>
-    <br>
-    <h2>Hover Tooltips</h2>
-    <p>You can add a title and description for markers and connections. When a user hovers over either, this information will be shown. Use the functions <code>setMarkerInfo</code> and <code>setConnectionInfo</code> to set this information. If it is undefined, it will not show a tooltip.</p>
-<pre class="javascript"><code>MapConnections.setMarkerInfo({ markerIndex: int, title: string?, description: string? })
-MapConnections.setConnectionInfo({ connectionIndex: int, title: string?, description: string? })</code></pre>
-</code></pre>
-<p>You can also initialize titles and descriptions (by initializing the parameter <code>title</code> and/or <code>description</code>) for markers and connections when they are created.</p>
-<pre class="javascript"><code>MapConnections.addMarker({
-  top: int,
-  left: int,
-  title: string?,
-  description: string?,
-  color: string? (color),
-})
-MapConnections.addConnection({
-  markerIndexStart: int,
-  markerIndexEnd: int,
-  animation: bool? = true,
-  iconId: string? : div ID for custom icon,
-  animationDuration: int? = 2500,
-  rotateIcon: bool? = false,
-  width: int? = 5,
-  title: string?,
-  description: string?,
-  color: string? (color),
-})</code></pre>
-    <h4>Example:</h4>
-    <p>Will create the map below with hover information (hover over the markers and connection line to see the title and descriptions!):</p>    
-    <pre class="javascript"><code>map.setConnectionInfo({ connectionIndex:0, title:"Connection Title", description:"Some description here." })
-map.setMarkerInfo({ markerIndex:0, title:"Marker Title", description:"Some description here." })</code></pre>
-    <div id="map-getting-started5"></div>
-    <br>
-
-    <h1>Customization</h1>
-    <p>To see more detailed examples of how customizations can be applied, see the Practical example below.</p>
-    <h2>Colors</h2>
-    <p>Set the background color of the map, color of markers, color of connection path, and the color of the default icon that animates along the path.</p>
-<pre class="javascript"><code>MapConnections.setBackgroundColor({ color: string (color) })
-MapConnections.setMarkerColor({ markerIndex: int, color: string (color) })
-MapConnections.setConnectionColor({ connectionIndex: int, color: string (color) })
-MapConnections.setConnectionIconColor({ connectionIndex: int, color: string (color) })
-</code></pre>
-    <div id="map-getting-started6"></div>
-    <div class="button smaller" onclick="toggleBackgroundColor()">
-      <p>Change Background Color</p>
-    </div>
-    <div class="button smaller" onclick="toggleMarkerColor()">
-      <p>Change Marker Color</p>
-    </div>
-    <div class="button smaller" onclick="toggleConnectionColor()">
-      <p>Change Connection Color</p>
-    </div>
-    <div class="button smaller" onclick="toggleConnectionIconColor()">
-      <p>Change Connection Icon Color</p>
-    </div>
-    <h2>Inverted/White Map</h2>
-    <p>Invert the map to use a white outline in the constructor of your map (set the <code>whiteMap</code> parameter to <i>true</i>).</p>
-<pre class="javascript"><code>new MapConnections({
-  divId: string,
-  width: int,
-  whiteMap: bool? = false,
-  mapType: string? = "outline" : "outline" | "outlineFilled" | "filled",
-  imgFilter: string? = "" : CSS Filter,
-})</code></pre>
-    <h2>Zoom Levels and Map Cropping</h2>
-    <p>Set the map crop size (in pixels), shift the map to show a specific area, or zoom into an area of the map image by increasing its scale.</p>
-    <p><i>Note: You should set the zoom level <b>before</b> setting points. The width and height of the map can change, causing the calculations for marker positions to become offset.</i></p>
-<pre class="javascript"><code>MapConnections.setCropSize({ width: int, height: int })
-MapConnections.setMapShift({ x: int, y: int })
-MapConnections.setMapZoom({ zoom: int })</code></pre>
-    
-    <h2>Custom Connection Path Icons</h2>
-    <p>To create a custom icon to overwrite the default moving dot, add the icon to the HTML body and pass in the <code>custom icon id</code> when a connection is made</p>
-    <h4>Example:</h4>
-    <p>Will create the map below with a custom package icon moving along the connection line. Set <code>rotateIcon</code> to rotate the icon to face along the connection line path.</p>
-    <pre class="HTML"><code>&lt;img id="<span class="argument">package-icon-example</span>" src="package.png" width="30px" height="30px">&lt;/img&gt;</code></pre>
-    <pre class="javascript"><code>mapGettingStarted6.addConnection({ markerIndexStart:0, markerIndexEnd:1, iconId:"package-icon-example", duration:5000, rotateIcon: true })</code></pre>
-    <div id="map-getting-started7"></div>
-    <img id="package-icon-example" src="package.png" width="30px" height="30px"></img>
-    <br>
-    <h2>Animation Duration</h2>
-    <p>When adding a connection, specify the animation duration. Set the value of the <code>animationDuration</code> parameter</p>
-<pre class="javascript"><code>MapConnections.addConnection({
-  markerIndexStart: int,
-  markerIndexEnd: int,
-  animation: bool? = true,
-  iconId: string? : div ID for custom icon,
-  animationDuration: int? = 2500,
-  rotateIcon: bool? = false,
-  width: int? = 5,
-  title: string?,
-  description: string?,
-  color: string? (color),
-})</code></pre>
-    <h2>Legend</h2>
-    <p>Show an automatically generated legend based on the parameters entered into the map by calling the function:</p>
-    <pre class="javascript"><code>MapConnections.showLegend()</code></pre>
-    <h4>Example:</h4>
-<pre class="javascript"><code>map.setMarkerInfo({ markerIndex:1, title:"Marker 2" })
-map.setMarkerColor({ markerIndex: 0, color:"#2E326E" })
-map.setMarkerColor({ markerIndex: 1, color:"#9B53EE" })
-map.setConnectionColor({ connectionIndex: 0, color:"#FF2424" })
-map.showLegend()
-</code></pre>
-
-    <div id="map-getting-started8"></div>
-    <div class="bottom-buttons">
-      <a href="./installation.html">
-        <div class="button">
-          <p>◄ Installation</p>
-        </div>
-      </a>
-      <a href="./examples.html">
-        <div class="button">
-          <p>Examples	►</p>
-        </div>
-      </a>
-    </div>
-  </body>
+  <div id="map-div"></div>
+  
+  <div class="bottom-buttons">
+    <a href="./index.html">
+      <div class="button">
+        <p>◄ Home</p>
+      </div>
+    </a>
+    <a href="./starter-guide.html">
+      <div class="button">
+        <p>Starter Guide	►</p>
+      </div>
+    </a>
+  </div>
+ </body>
 </html>
