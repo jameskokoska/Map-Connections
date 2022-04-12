@@ -1,13 +1,9 @@
 # Map Connections
-<div style="text-align:center; margin-bottom:15px">
+<p align="center">
   <a href="https://map-connections-library.herokuapp.com/index.html">
     <img src="./pub/route.png" width=150/>
   </a>
-  <h2 style="margin:0px">Map Connections</h2>
-  <h3 style="margin:0px; margin-top:-5px">JavaScript Library</h3>
-  <h3 style="margin:0px;">Visualize Global Connections Instantly
-</h3>
-</div>
+</p>
 
 
 # Getting Started
