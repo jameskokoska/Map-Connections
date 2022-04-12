@@ -116,6 +116,18 @@ pre > code{
   font-family: 'SofiaPro-Black', sans-serif;
 }
 
+.button p {
+  margin:0px;
+}
+
+.parameter {
+  margin-bottom:10px;
+}
+
+.parameter code{
+  margin: 0px 2px;
+}
+
 .smaller{
   border-radius: 5px;
   padding: 8px 12px;

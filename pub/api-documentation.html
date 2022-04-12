@@ -25,27 +25,27 @@
       </a>
       <a href="./index.html">
         <div class="button button-navbar">
-          Home
+          <p>Home</p>
         </div>
       </a>
       <a href="./installation.html">
         <div class="button button-navbar">
-          Installation
+          <p>Installation</p>
         </div>
       </a>
       <a href="./getting-started.html">
         <div class="button button-navbar">
-          Getting Started
+          <p>Getting Started</p>
         </div>
       </a>
       <a href="./examples.html">
         <div class="button button-navbar">
-          Examples
+          <p>Examples</p>
         </div>
       </a>
       <a href="./api-documentation.html">
         <div class="button button-navbar button-selected">
-          API Documentation
+          <p>API Documentation</p>
         </div>
       </a>
     </div>
@@ -65,11 +65,11 @@
   mapType: string? = "outline" : "outline" | "outlineFilled" | "filled",
   imgFilter: string? = "" : CSS Filter,
 })</code></pre>
-    <p><code>divId</code>: The div's ID from HTML to attach the map to.</p>
-    <p><code>width</code>: The width of the map (in pixels). The height will automatically be sized based on the ratio of the map.</p>
-    <p><code>whiteMap</code>: The color of the map image to white, if set to true.</p>
-    <p><code>mapType</code>: The type of map to use for the image. There are 3 different maps: <a target="_blank" href="https://map-connections-library.herokuapp.com/mapConnectionsLibrary/world-outline.svg">"outline"</a> | <a target="_blank" href="https://map-connections-library.herokuapp.com/mapConnectionsLibrary/world-filled-outline.svg">"outlineFilled"</a> | <a target="_blank" href="https://map-connections-library.herokuapp.com/mapConnectionsLibrary/world-filled.svg">"filled"</a></p>
-    <p><code>imgFilter</code>: The CSS filter to apply to the map image. Useful for changing the maps color. To get the CSS filter to change the maps image to any color, use this tool: <a href="https://codepen.io/sosuke/pen/Pjoqqp">https://codepen.io/sosuke/pen/Pjoqqp</a>.</p>
+    <p class="parameter"><code>divId</code>: The div's ID from HTML to attach the map to.</p>
+    <p class="parameter"><code>width</code>: The width of the map (in pixels). The height will automatically be sized based on the ratio of the map.</p>
+    <p class="parameter"><code>whiteMap</code>: The color of the map image to white, if set to true.</p>
+    <p class="parameter"><code>mapType</code>: The type of map to use for the image. There are 3 different maps: <a target="_blank" href="https://map-connections-library.herokuapp.com/mapConnectionsLibrary/world-outline.svg">"outline"</a> | <a target="_blank" href="https://map-connections-library.herokuapp.com/mapConnectionsLibrary/world-filled-outline.svg">"outlineFilled"</a> | <a target="_blank" href="https://map-connections-library.herokuapp.com/mapConnectionsLibrary/world-filled.svg">"filled"</a></p>
+    <p class="parameter"><code>imgFilter</code>: The CSS filter to apply to the map image. Useful for changing the maps color. To get the CSS filter to change the maps image to any color, use this tool: <a href="https://codepen.io/sosuke/pen/Pjoqqp">https://codepen.io/sosuke/pen/Pjoqqp</a>.</p>
     <div class="small-break"></div>
     <h1>Functions</h1>
     <p>All the functions available to use, called on the instance of the map class.</p>
@@ -81,11 +81,11 @@
   description: string?,
   color: string? (color),
 })</code></pre>
-    <p><code>top</code>: The distance relative from the top of the map image to place the marker.</p>
-    <p><code>left</code>: The distance relative from the left of the map image to place the marker.</p>
-    <p><code>title</code>: The title to show when the user hovers over the marker, and to show in the legend.</p>
-    <p><code>description</code>: The description to show when the user hovers over the marker.</p>
-    <p><code>color</code>: The color to set the marker line to. Follows CSS standards.</p>
+    <p class="parameter"><code>top</code>: The distance relative from the top of the map image to place the marker.</p>
+    <p class="parameter"><code>left</code>: The distance relative from the left of the map image to place the marker.</p>
+    <p class="parameter"><code>title</code>: The title to show when the user hovers over the marker, and to show in the legend.</p>
+    <p class="parameter"><code>description</code>: The description to show when the user hovers over the marker.</p>
+    <p class="parameter"><code>color</code>: The color to set the marker line to. Follows CSS standards.</p>
     <div class="small-break"></div>
     <h2>Add Marker At Longitude/Latitude: <code>addMarkerApproxLongLat</code></h2>
 <pre class="javascript"><code>MapConnections.addMarkerApproxLongLat({
@@ -95,11 +95,11 @@
   description: string?,
   color: string? (color),
 })</code></pre>
-    <p><code>longitude</code>: The latitude measurement for the marker point.</p>
-    <p><code>latitude</code>: The longitude measurement for the marker point.</p>
-    <p><code>title</code>: The title to show when the user hovers over the marker, and to show in the legend.</p>
-    <p><code>description</code>: The description to show when the user hovers over the marker.</p>
-    <p><code>color</code>: The color to set the marker line to. Follows CSS standards.</p>
+    <p class="parameter"><code>longitude</code>: The latitude measurement for the marker point.</p>
+    <p class="parameter"><code>latitude</code>: The longitude measurement for the marker point.</p>
+    <p class="parameter"><code>title</code>: The title to show when the user hovers over the marker, and to show in the legend.</p>
+    <p class="parameter"><code>description</code>: The description to show when the user hovers over the marker.</p>
+    <p class="parameter"><code>color</code>: The color to set the marker line to. Follows CSS standards.</p>
     <div class="small-break"></div>
     <h2>Set Marker Info: <code>setMarkerInfo</code></h2>
 <pre class="javascript"><code>MapConnections.setMarkerInfo({
@@ -107,17 +107,17 @@
   title: string?,
   description: string?,
 })</code></pre>
-    <p><code>markerIndex</code>: The index of the marker in the <code>marker</code> list of marker objects.</p>
-    <p><code>title</code>: The title to show when the user hovers over the marker, and to show in the legend.</p>
-    <p><code>description</code>: The description to show when the user hovers over the marker.</p>
+    <p class="parameter"><code>markerIndex</code>: The index of the marker in the <code>marker</code> list of marker objects.</p>
+    <p class="parameter"><code>title</code>: The title to show when the user hovers over the marker, and to show in the legend.</p>
+    <p class="parameter"><code>description</code>: The description to show when the user hovers over the marker.</p>
     <div class="small-break"></div>
     <h2>Set Marker Color: <code>setMarkerColor</code></h2>
 <pre class="javascript"><code>MapConnections.setMarkerColor({
   markerIndex: int,
   color: string (color),
 })</code></pre>
-    <p><code>markerIndex</code>: The index of the marker in the <code>marker</code> list of marker objects.</p>
-    <p><code>color</code>: The color to set the marker line to. Follows CSS standards.</p>
+    <p class="parameter"><code>markerIndex</code>: The index of the marker in the <code>marker</code> list of marker objects.</p>
+    <p class="parameter"><code>color</code>: The color to set the marker line to. Follows CSS standards.</p>
     <div class="small-break"></div>
     <h2>Add Connection: <code>addConnection</code></h2>
 <pre class="javascript"><code>MapConnections.addConnection({
@@ -133,17 +133,17 @@
   color: string? (color),
   iconColor: string? (color),
 })</code></pre>
-    <p><code>markerIndexStart</code>: The first index as the starting point for the connection. The index of the marker in the <code>markers</code> list of marker objects.</p>
-    <p><code>markerIndexEnd</code>: The last index as the ending point for the connection. The index of the marker in the <code>markers</code> list of marker objects.</p>
-    <p><code>animation</code>: Determines if a dot or icon should be animated along the connection line.</p>
-    <p><code>iconId</code>: The custom icon div's ID from HTML.</p>
-    <p><code>animationDuration</code>: The length of the icons animation along the connection path in milliseconds.</p>
-    <p><code>rotateIcon</code>: Determines if the icon should be rotated to face along the direction of the connection line.</p>
-    <p><code>width</code>: How thick the connection line should be.</p>
-    <p><code>title</code>: The title to show when the user hovers over the connection, and to show in the legend.</p>
-    <p><code>description</code>: The description to show when the user hovers over the connection.</p>
-    <p><code>color</code>: The color to set the connection line to. Follows CSS standards.</p>
-    <p><code>iconColor</code>: The color to set the connection line's animated dot icon to. Follows CSS standards.</p>
+    <p class="parameter"><code>markerIndexStart</code>: The first index as the starting point for the connection. The index of the marker in the <code>markers</code> list of marker objects.</p>
+    <p class="parameter"><code>markerIndexEnd</code>: The last index as the ending point for the connection. The index of the marker in the <code>markers</code> list of marker objects.</p>
+    <p class="parameter"><code>animation</code>: Determines if a dot or icon should be animated along the connection line.</p>
+    <p class="parameter"><code>iconId</code>: The custom icon div's ID from HTML.</p>
+    <p class="parameter"><code>animationDuration</code>: The length of the icons animation along the connection path in milliseconds.</p>
+    <p class="parameter"><code>rotateIcon</code>: Determines if the icon should be rotated to face along the direction of the connection line.</p>
+    <p class="parameter"><code>width</code>: How thick the connection line should be.</p>
+    <p class="parameter"><code>title</code>: The title to show when the user hovers over the connection, and to show in the legend.</p>
+    <p class="parameter"><code>description</code>: The description to show when the user hovers over the connection.</p>
+    <p class="parameter"><code>color</code>: The color to set the connection line to. Follows CSS standards.</p>
+    <p class="parameter"><code>iconColor</code>: The color to set the connection line's animated dot icon to. Follows CSS standards.</p>
     <div class="small-break"></div>
     <h2>Set Connection Info: <code>setConnectionInfo</code></h2>
 <pre class="javascript"><code>MapConnections.setConnectionInfo({
@@ -151,25 +151,25 @@
   title: string?,
   description: string?,
 })</code></pre>
-    <p><code>connectionIndex</code>: The index of the connection in the <code>connections</code> list of connection objects.</p>
-    <p><code>title</code>: The title to show when the user hovers over the connection, and to show in the legend.</p>
-    <p><code>description</code>: The description to show when the user hovers over the connection.</p>
+    <p class="parameter"><code>connectionIndex</code>: The index of the connection in the <code>connections</code> list of connection objects.</p>
+    <p class="parameter"><code>title</code>: The title to show when the user hovers over the connection, and to show in the legend.</p>
+    <p class="parameter"><code>description</code>: The description to show when the user hovers over the connection.</p>
     <div class="small-break"></div>
     <h2>Set Connection Color: <code>setConnectionColor</code></h2>
 <pre class="javascript"><code>MapConnections.setConnectionColor({
   connectionIndex: int,
   color: string (color),
 })</code></pre>
-    <p><code>connectionIndex</code>: The index of the connection in the <code>connections</code> list of connection objects.</p>
-    <p><code>color</code>: The color to set the connection line to. Follows CSS standards.</p>
+    <p class="parameter"><code>connectionIndex</code>: The index of the connection in the <code>connections</code> list of connection objects.</p>
+    <p class="parameter"><code>color</code>: The color to set the connection line to. Follows CSS standards.</p>
     <div class="small-break"></div>
     <h2>Set Connection Moving Dot Icon Color: <code>setConnectionIconColor</code></h2>
 <pre class="javascript"><code>MapConnections.setConnectionIconColor({
   connectionIndex: int,
   color: string (color),
 })</code></pre>
-    <p><code>connectionIndex</code>: The index of the connection in the <code>connections</code> list of connection objects.</p>
-    <p><code>color</code>: The color to set the icon to. Follows CSS standards.</p>
+    <p class="parameter"><code>connectionIndex</code>: The index of the connection in the <code>connections</code> list of connection objects.</p>
+    <p class="parameter"><code>color</code>: The color to set the icon to. Follows CSS standards.</p>
     <div class="small-break"></div>
     <h1>Legend</h1>
     <p>Show a legend underneath the map. The labels are based off the titles specified for markers and connections. The colors are based off the colors specified for markers and connections.</p>
@@ -180,13 +180,13 @@
 <pre class="javascript"><code>MapConnections.startAnimation({
   connectionIndex: int,
 })</code></pre>
-    <p><code>connectionIndex</code>: The index of the connection in the <code>connections</code> list of connection objects.</p>
+    <p class="parameter"><code>connectionIndex</code>: The index of the connection in the <code>connections</code> list of connection objects.</p>
     <div class="small-break"></div>
     <h2>Stop Animation: <code>stopAnimation</code></h2>
 <pre class="javascript"><code>MapConnections.stopAnimation({
   connectionIndex: int,
 })</code></pre>
-    <p><code>connectionIndex</code>: The index of the connection in the <code>connections</code> list of connection objects.</p>
+    <p class="parameter"><code>connectionIndex</code>: The index of the connection in the <code>connections</code> list of connection objects.</p>
     <div class="small-break"></div>
     <h1>Map Customization</h1>
     <p>Map customizations should be set <i>before</i> any markers or connections are added.</p>
@@ -194,29 +194,29 @@
 <pre class="javascript"><code>MapConnections.setBackgroundColor({
   color: string (color),
 })</code></pre>
-    <p><code>color</code>: The color to set the background to. Follows CSS standards.</p>
+    <p class="parameter"><code>color</code>: The color to set the background to. Follows CSS standards.</p>
     <div class="small-break"></div>
     <h2>Crop Size: <code>setCropSize</code></h2>
 <pre class="javascript"><code>MapConnections.setCropSize({
   width: int,
   height: int,
 })</code></pre>
-    <p><code>width</code>: The width to set the crop size to, of the map.</p>
-    <p><code>height</code>: The height to set the crop size to, of the map.</p>
+    <p class="parameter"><code>width</code>: The width to set the crop size to, of the map.</p>
+    <p class="parameter"><code>height</code>: The height to set the crop size to, of the map.</p>
     <div class="small-break"></div>
     <h2>Map Shift: <code>setMapShift</code></h2>
 <pre class="javascript"><code>MapConnections.setMapShift({
   x: int,
   y: int,
 })</code></pre>
-    <p><code>x</code>: The amount to shift by to the right.</p>
-    <p><code>y</code>: The amount to shift by to the bottom.</p>
+    <p class="parameter"><code>x</code>: The amount to shift by to the right.</p>
+    <p class="parameter"><code>y</code>: The amount to shift by to the bottom.</p>
     <div class="small-break"></div>
     <h2>Map Zoom: <code>setMapZoom</code></h2>
 <pre class="javascript"><code>MapConnections.setMapZoom({
   zoom: double,
 })</code></pre>
-    <p><code>zoom</code>: The amount to zoom the map image in.</p>
+    <p class="parameter"><code>zoom</code>: The amount to zoom the map image in.</p>
     <div class="small-break"></div>
     <h1>CSS Styles</h1>
     <p>These styles can be changed using CSS and the respective selector in HTML.</p>
@@ -325,7 +325,7 @@
 <pre class="javascript"><code>MapConnections.showMarkerIndex({
   markerIndex: int,
 })</code></pre>
-    <p><code>markerIndex</code>: The index of the marker in the <code>markers</code> list of marker objects.</p>
+    <p class="parameter"><code>markerIndex</code>: The index of the marker in the <code>markers</code> list of marker objects.</p>
     <div class="small-break"></div>
     <h2>Show All Connection Indices: <code>showAllConnectionIndices</code></h2>
 <pre class="javascript"><code>MapConnections.showAllConnectionIndices()</code></pre>
@@ -333,7 +333,7 @@
 <pre class="javascript"><code>MapConnections.showConnectionIndex({
   connectionIndex: int,
 })</code></pre>
-    <p><code>connectionIndex</code>: The index of the connection in the <code>connections</code> list of connection objects.</p>
+    <p class="parameter"><code>connectionIndex</code>: The index of the connection in the <code>connections</code> list of connection objects.</p>
     <div class="small-break"></div>
     <h2>Hide All Marker Indices: <code>hideAllMarkerIndices</code></h2>
 <pre class="javascript"><code>MapConnections.hideAllMarkerIndices()</code></pre>
@@ -341,7 +341,7 @@
 <pre class="javascript"><code>MapConnections.hideMarkerIndex({
   markerIndex: int,
 })</code></pre>
-    <p><code>markerIndex</code>: The index of the marker in the <code>markers</code> list of marker objects.</p>
+    <p class="parameter"><code>markerIndex</code>: The index of the marker in the <code>markers</code> list of marker objects.</p>
     <div class="small-break"></div>
     <h2>Hide All Connection Indices: <code>hideAllConnectionIndices</code></h2>
 <pre class="javascript"><code>MapConnections.hideAllConnectionIndices()</code></pre>
@@ -349,11 +349,11 @@
 <pre class="javascript"><code>MapConnections.hideConnectionIndex({
   connectionIndex: int,
 })</code></pre>
-    <p><code>connectionIndex</code>: The index of the connection in the <code>connections</code> list of connection objects.</p>
+    <p class="parameter"><code>connectionIndex</code>: The index of the connection in the <code>connections</code> list of connection objects.</p>
     <div class="bottom-buttons">
       <a href="./examples.html">
         <div class="button">
-          ◄ Examples
+          <p>◄ Examples</p>
         </div>
       </a>
     </div> 
