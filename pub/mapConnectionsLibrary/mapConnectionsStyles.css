@@ -135,7 +135,7 @@
   position: absolute;
   z-index: 5;
   text-indent: 0;
-  padding:5px;
+  padding: 5px;
   box-shadow: 3px 1px 7px 2px #46464773;
   opacity: 0;
   transition: opacity 0.25s;
@@ -151,4 +151,47 @@
 #map-connection-popup h3{
   margin:10px;
   margin-bottom: 5px;
+}
+
+.legend-box{
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 2px 5px 5px 2px #46464748;
+  padding:15px;
+  display: inline-block;
+}
+
+.map-marker-icon-legend{
+  transform: rotate(-45deg);
+  border-radius: 50% 50% 50% 0;
+  background-color: white;
+  width: 19px;
+  height: 19px;
+  text-align: center;
+  text-indent: 0;
+  margin: 0px 10px 0px 0px;
+  box-shadow: 3px 1px 7px 2px #46464718;
+}
+
+.map-connection-legend{
+  width:30px;
+  height:5px;
+  border-radius: 10px;
+  margin: 0px 10px 0px 0px;
+  box-shadow: 3px 1px 7px 2px #46464718;
+}
+
+.legend-entry{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.legend-box-details{
+  display: flex;
+}
+
+.legend-box-details-marker{
+  margin:0px 15px;
 }

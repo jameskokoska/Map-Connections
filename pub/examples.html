@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -10,251 +10,310 @@
     <link rel="stylesheet" href="./mapConnectionsLibrary/mapConnectionsStyles.css">
     <script defer type="text/javascript" src='./mapConnectionsLibrary/mapConnections.js'></script>
     
-    <link rel="stylesheet" href="examples.css">
+    <link rel="stylesheet" href="index.css">
     <script defer type="text/javascript" src='examples.js'></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>hljs.highlightAll(); hljs.configure({ignoreUnescapedHTML:true})</script>
 
- </head>
- <body>
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="./index.html" style="position: absolute; left:20px">
+        <img src="route.png" width:="50" height="50" class="header-image">
+      </a>
+      <a href="./index.html">
+        <div class="button button-navbar">
+          Home
+        </div>
+      </a>
+      <a href="./installation.html">
+        <div class="button button-navbar">
+          Installation
+        </div>
+      </a>
+      <a href="./getting-started.html">
+        <div class="button button-navbar">
+          Getting Started
+        </div>
+      </a>
+      <a href="./examples.html">
+        <div class="button button-navbar button-selected">
+          Examples
+        </div>
+      </a>
+      <a href="./api-documentation.html">
+        <div class="button button-navbar">
+          API Documentation
+        </div>
+      </a>
+    </div>
     <div class="header-content">
-      <img src="route.png" width:="60" height="60" class="header-image"><h1 class="header">Map Connections</h1>
-      <h2 class="subheader"><i>Visualize global connections instantly</i></h2>
-      <div id="map-landing"></div>
+      <img src="route.png" width:="60" height="60" class="header-image">
+      <h1 class="header">Map Connections</h1>
+      <h2 class="subheader">Examples</h2>
       <br>
     </div>
-    <h1>Getting Started</h1>
-    <h2>Depend on the library</h2>
-    <p>In the head tag in the HTML, import the <i>Map Connections</i> library and CSS</p>
-    <pre><code>&lt;head&gt;
-  &lt;link rel="stylesheet" href=<span class="argument">"https://map-connections-library.herokuapp.com/mapConnectionsLibrary/mapConnectionsStyles.css"</span>&gt;
-  &lt;script defer type="text/javascript" src=<span class="argument">'https://map-connections-library.herokuapp.com/mapConnectionsLibrary/mapConnections.js'</span>&gt;</script>
-  ...
-&lt;/head&gt;</code></pre>
-
-    <br/>
-    <h2>Creating the Map</h2>
-    <p>Create a div to attach the map to. Pass in the id and width size (in pixels) when creating a map in your JavaScript. Create the map by creating a <code>MapConnections</code> object. </p>
-    <pre><code>new MapConnections(<span class="argument">String divID</span>,<span class="argument">int widthSizePixels</span>,<span class="argument">bool? invertMapColor</span>)</code></pre>
-    <h4>Example:</h4>
-    <pre><code>&lt;div id="<span class="argument">my-map</span>"&gt;&lt;/div&gt;</code></pre>
-    <pre><code>const map = new MapConnections(<span class="argument">my-map</span>,400)</code></pre>
-    <p>Will create the map below with width 400px:</p>
-    <div id="map-getting-started"></div>
-    
-    <br/>
-    <h2>Creating Markers and Connections</h2>
-    <h3>Single Markers and Connections</h3>
-    <p>You can add markers by calling <code>addMarker</code> or <code>addMarkerApproxLongLat</code></p>
-    <pre><code>MapConnections.addMarker: function(<span class="argument">int pixelsFromTop</span>,<span class="argument">int pixelsFromLeft</span>)
-MapConnections.addMarkerApproxLongLat: function(<span class="argument">double longitude</span>,<span class="argument">double latitude</span>)</code></pre>
-    <p>You can add connections by calling <code>addConnection</code></p>
-    <p>Specify 2 marker indices (start and end), if you want an animation initially (optional), the custom icon id (optional - leave as empty string if none), and the animation duration (milliseconds)</p>
-    <pre><code>MapConnections.addConnection: function(<span class="argument">int markerIndexStart</span>,<span class="argument">int markerIndexDestination</span>,<span class="argument">bool? animation</span>,<span class="argument">String? customIconID</span>,<span class="argument">int? animationDurationMilliseconds</span>)</code></pre>
-    <h4>Example:</h4>
-    <pre><code>map.addMarker(200,100)
-map.addMarkerApproxLongLat(27,108)
-map.addConnection(0,1)
-</code></pre>
-    <p>Will create the map below with 2 markers and a connection line (with a dot animating along the path):</p>
-    <div id="map-getting-started2"></div>
-    <br/>
-    <h2>Debugging Tools</h2>
-    <p>To get a list of all the generated marker objects, access the class variable <code>markers</code> (list of objects).</p>
-    <p>To get a list of all the generated connection objects, access the class variable <code>connections</code>  (list of objects).</p>
-    <h4>Example:</h4>
-    <pre><code>//Get number of current markers
-console.log(map.markers.length)
->> 2
-//Get number of current connections
-console.log(map.connections.length)
->> 1
-//Get all marker objects
-console.log(map.connections)
-//Get all connection objects
-console.log(map.connections)
-</code></pre>
-    <p>You can visually display the indices of the connections and the markers by using the functions <code>showMarkerIndex</code> <code>showAllMarkerIndices</code> <code>showConnectionIndex</code> <code>showAllConnectionIndices</code>. This can help indicate which markers to specify for a specific connection.</p>
-    <p>To remove the indices you can use the functions <code>hideMarkerIndex</code> <code>hideAllMarkerIndices</code> <code>hideConnectionIndex</code> <code>hideAllConnectionIndices</code></p>
-    <pre><code>MapConnections.showMarkerIndex: function(<span class="argument">int markerIndex</span>)
-MapConnections.showAllMarkerIndices: function()
-MapConnections.showConnectionIndex: function(<span class="argument">int connectionIndex</span>
-MapConnections.showAllConnectionIndices: function()
-</code></pre>
-    <pre><code>MapConnections.hideMarkerIndex: function(<span class="argument">int markerIndex</span>)
-MapConnections.hideAllMarkerIndices: function()
-MapConnections.hideConnectionIndex: function(<span class="argument">int connectionIndex</span>
-MapConnections.hideAllConnectionIndices: function()
-</code></pre>
-    <h4>Example:</h4>
-    <pre><code>map.showAllConnectionIndices()
-map.showAllMarkerIndices()
-map.hideMarkerIndex(0)
-</code></pre>
-    <p>Will create the map below showing the connection and index vertices (while hiding the 0th marker index):</p>
-    <div id="map-getting-started3"></div>
-    <br/>
-    <h3>Starting/Stopping the animation</h3>
-    <p>You can start and stop the animation by calling the function <code>startAnimation</code> and <code>stopAnimation</code> respectively</p>
-    <pre><code>MapConnections.startAnimation: function(<span class="argument">connectionIndex</span>)
-MapConnections.stopAnimation: function(<span class="argument">connectionIndex</span>)
-</code></pre>
-    <p>or you can disable the animation initially by setting <code>animation</code> to <i>false</i> when adding a connection</p>
-    <pre><code>MapConnections.addConnection: function(<span class="argument">int markerIndexStart</span>,<span class="argument">int markerIndexDestination</span>,<span class="argument">bool? animation</span>,<span class="argument">String? customIconID</span>,<span class="argument">int? animationDurationMilliseconds</span>)</code></pre>
-    <h4>Example:</h4>
-    <pre><code>map.stopAnimation(0)</code></pre>
-    <p>Will create the map below with a stopped animation (no animated dot):</p>
-    <div id="map-getting-started4"></div>
-    <br>
-    <h3>Hover Tooltips</h3>
-    <p>You can add a title and description for markers and connections. When a user hovers over either, this information will be shown. Use the functions <code>setMarkerInfo</code> and <code>setConnectionInfo</code> to set this information. If it is undefined, it will not show a tooltip.</p>
-    <pre><code>MapConnections.setMarkerInfo: function(<span class="argument">int connectionIndex</span>,<span class="argument">String title</span>,<span class="argument">String description</span>)
-MapConnections.setConnectionInfo: function(<span class="argument">int connectionIndex</span>,<span class="argument">String title</span>,<span class="argument">String description</span>)
-</code></pre>
-    <h4>Example:</h4>
-    <pre><code>map.setConnectionInfo(0,"Connection Title","Some description here.")
-map.setMarkerInfo(0,"Marker Title","Some description here.")</code></pre>
-    <p>Will create the map below with hover information (hover over the markers and connection line to see the title and descriptions!):</p>    
-    <div id="map-getting-started5"></div>
-    <br>
-
-    <!-- <h3>Adding Multiple Markers and Connections at a time</h3>
-    <pre><code>
-      addMarkers{
-        title: undefined (optional),
-        description: undefined (optional),
-        color: undefined (optional),
-        location: {top:undefined, left:undefined, longLat: true},
-        size: undefined (optional)
-        hoverScaleEffect: false
-      }
-    </code></pre>
-    <pre><code>
-      addConnections{
-        title: undefined (optional),
-        description: undefined (optional),
-        color: undefined (optional),
-        location: {top:undefined, left:undefined, longLat: true},
-        thickness: undefined (optional)
-        customIconID: (optional)
-        hoverScaleEffect: false
-      }
-    </code></pre> -->
-    <h1>Customization</h1>
-    <p>To see an example of how customizations can be applied, see the Practical example below.</p>
-    <h2>Colors</h2>
-    <p>Set the background color of the map, color of markers, color of connection path, and the color of the default icon that animates along the path.</p>
-    <pre><code>MapConnections.setBackgroundColor: function(<span class="argument">String color</span>)
-MapConnections.setMarkerColor: function(<span class="argument">int markerIndex</span>,<span class="argument">String color</span>)
-MapConnections.setConnectionColor: function(<span class="argument">int connectionIndex</span>,<span class="argument">String color</span>)
-MapConnections.setConnectionIconColor: function(<span class="argument">int connectionIndex</span>,<span class="argument">String color</span>)
-</code></pre>
-    <h2>Inverted/White Map</h2>
-    <p>Invert the map to use a white outline in the constructor of your map (set third argument to <i>true</i>).</p>
-    <pre><code>new MapConnections(<span class="argument">String divID</span>,<span class="argument">int widthSizePixels</span>,<span class="argument">bool? invertMapColor</span>)</code></pre>
-    <h2>Zoom Levels and Map Cropping</h2>
-    <p>Set the map crop size (in pixels), shift the map to show a specific area, or zoom into an area of the map image by increasing its scale.</p>
-    <p><i>Note: You should set the zoom level before setting points. The width and height of the map can change, causing the calculations for marker positions to become offset.</i></p>
-    <pre><code>MapConnections.setCropSize: function(<span class="argument">int width</span>,<span class="argument">int height</span>)
-MapConnections.setMapShift: function(<span class="argument">int xShift</span>,<span class="argument">int yShift</span>)
-MapConnections.setMapZoom: function(<span class="argument">double zoomPercentDecimal</span>)
-</code></pre>
-    
-    <h2>Custom Connection Path Icons</h2>
-    <p>To create a custom icon to overwrite the default moving dot, add the icon to the HTML body and pass in the <code>custom icon id</code> when a connection is made</p>
-    <h4>Example:</h4>
-    <pre><code>&lt;img id="<span class="argument">package-icon-example</span>" src="package.png" width="30px" height="30px">&lt;/img&gt;</code></pre>
-    <pre><code>map.addConnection(0,1,true,"<span class="argument">package-icon-example</span>")</code></pre>
-    <p>Will create the map below with a custom package icon moving along the connection line:</p>    
-    <div id="map-getting-started6"></div>
-    <img id="package-icon-example" src="package.png" width="30px" height="30px"></img>
-    <br>
-    <h2>Animation Duration</h2>
-    <p>When adding a connection, specify the animation duration.</p>
-    <p>If there is no custom icon, leave the <code>customIconID</code> as undefined or empty string.</p>
-    <pre><code>MapConnections.addConnection: function(<span class="argument">int markerIndexStart</span>,<span class="argument">int markerIndexDestination</span>,<span class="argument">bool? animation</span>,<span class="argument">String? customIconID</span>,<span class="argument">int? animationDurationMilliseconds</span>)</code></pre>
-    <h1>Complete Practical Example</h1>
-    <p>This example shows a use case for this library. A package is delivered from one location (longitude, latitude) to another (relative) location, and is shown visually. Hover over the beginning marker, destination marker, and connection path to see more information.</p>
+    <h1>Complete Practical Examples</h1>
     <h2>Delivery Route</h2>
+    <p>This example shows a use case for this library. A package is delivered from one location (longitude, latitude) to another (relative) location, and is shown visually. Hover over the beginning marker, destination marker, and connection path to see more information. The legend is also shown below in this example. It is generated automatically from the given information provided into the map.</p>
     <pre><code>&lt;div id="map-example">&lt;/div&gt;
 &lt;img id="package-icon" src="package.png" width="30px" height="30px"&gt;
 </code></pre>
-    <pre><code>//Create a new 800px wide map, with a white contour
-const mapExample = new MapConnections('map-example',800, true)
+<pre><code>//Create a new 800px wide map, with a white contour
+const mapExample = new MapConnections({
+  divId: 'map-example',
+  width: 800,
+  whiteMap: true
+})
 //Set the crop and zoom level to fit the locations
-mapExample.setCropSize(700, 600)
-mapExample.setMapShift(-200,-600)
-mapExample.setMapZoom(3)
-mapExample.setBackgroundColor("#0C2E05")
+mapExample.setCropSize({
+  width: 700,
+  height: 600
+})
+mapExample.setMapShift({
+  x: -200,
+  y: -600
+})
+mapExample.setMapZoom({
+  zoom: 3
+})
+mapExample.setBackgroundColor({
+  color: "#0C2E05"
+})
 //Add the warehouse marker
-mapExample.addMarker(100,160)
-mapExample.setMarkerInfo(0, "Warehouse","Your package came from here!")
-mapExample.setMarkerColor(0,"#696E68")
+mapExample.addMarker({
+  top: 100,
+  left: 160
+})
+mapExample.setMarkerInfo({
+  markerIndex: 0,
+  title: "Warehouse",
+  description: "Your package came from here!"
+})
+mapExample.setMarkerColor({
+  markerIndex: 0,
+  color: "#696E68"
+})
 //Add the current location marker using longitude and latitude
-mapExample.addMarkerApproxLongLat(43.6532,-79.3832)
-mapExample.setMarkerInfo(1, "Toronto","This marker was put at 43.6532° N, 79.3832° W")
-mapExample.setMarkerColor(1,"#7FE96A")
+mapExample.addMarkerApproxLongLat({
+  longitude: 43.6532,
+  latitude: -79.3832
+})
+mapExample.setMarkerInfo({
+  markerIndex: 1,
+  title: "Toronto",
+  description: "This marker was put at 43.6532° N, 79.3832° W"
+})
+mapExample.setMarkerColor({
+  markerIndex: 1,
+  color: "#7FE96A"
+})
 //Add the destination marker
-mapExample.addMarker(500,260)
-mapExample.setMarkerInfo(2, "Your House","Your delivery address.")
-mapExample.setMarkerColor(2,"#DB5567")
+mapExample.addMarker({
+  top: 500,
+  left: 260
+})
+mapExample.setMarkerInfo({
+  markerIndex: 2,
+  title: "Your House",
+  description: "Your delivery address."
+})
+mapExample.setMarkerColor({
+  markerIndex: 2,
+  color: "#DB5567"
+})
 //Add the connection from warehouse marker to current location marker
-mapExample.addConnection(0,1,true,"", 10000)
-mapExample.setConnectionInfo(0, "Already completed","Your package arrived from the warehouse already!")
-mapExample.setConnectionColor(0, "#58584C")
-mapExample.setConnectionIconColor(0,"#898A64")
+mapExample.addConnection({
+  markerIndexStart: 0,
+  markerIndexEnd: 1,
+  animation: true,
+  iconId: "",
+  animationDuration: 10000
+})
+mapExample.setConnectionInfo({
+  connectionIndex: 0,
+  title: "Already completed",
+  description: "Your package arrived from the warehouse already!"
+})
+mapExample.setConnectionColor({
+  connectionIndex: 0,
+  color: "#58584C"
+})
+mapExample.setConnectionIconColor({
+  connectionIndex: 0,
+  color: "#898A64"
+})
 //Add the connection from current location marker to destination marker
-mapExample.addConnection(1,2,true,"package-icon", 5000)
-mapExample.setConnectionInfo(1, "Package","Your package is on the way from Toronto!")
-mapExample.setConnectionColor(1, "#DADD26")</code></pre>
+mapExample.addConnection({
+  markerIndexStart: 1,
+  markerIndexEnd: 2,
+  iconId: "package-icon",
+  animationDuration: 5000,
+  title: "Package",
+  description: "Your package is on the way from Toronto!",
+  color: "#DADD26"
+})
+//Show the legend below the map
+mapExample.showLegend()</code></pre>
     <div id="map-example"></div>
     <img id="package-icon" src="package.png" width="30px" height="30px">
     <br>
     <h2>Travelling Route</h2>
+    <p>This example shows a use case for this library. A travel route is shown visually, with different animation speeds and icons to indicate each form of travel along the route. Details of the route can be viewed by hovering over each marker and connection.</p>
     <pre><code>&lt;div id="map-example-travel"&gt;&lt;/div&gt;
 &lt;img id="car-icon" src="car.png" width="40px" height="40px"&gt;
 &lt;img id="cruise-icon" src="cruise.png" width="40px" height="40px"&gt;
 &lt;img id="airplane-icon" src="airplane.png" width="40px" height="40px"&gt;
 </code></pre>
-    <pre><code>//Create a new 1000px wide map
-const mapExampleTravel = new MapConnections('map-example-travel',1000)
+<pre><code>//Create a new 1000px wide map
+const mapExampleTravel = new MapConnections({
+  divId: 'map-example-travel',
+  width: 1000,
+  whiteMap: true,
+  mapType: "filled",
+  imgFilter: "invert(100%) sepia(20%) saturate(7461%) hue-rotate(47deg) brightness(110%) contrast(96%)"
+})
 //Set the crop and zoom level to fit the locations
-mapExampleTravel.setCropSize(1000, 600)
-mapExampleTravel.setMapShift(-250,-500)
-mapExampleTravel.setMapZoom(2)
-mapExampleTravel.setBackgroundColor("#6F5088")
+mapExampleTravel.setCropSize({
+  width: 1000,
+  height: 600
+})
+mapExampleTravel.setMapShift({
+  x: -250,
+  y: -500
+})
+mapExampleTravel.setMapZoom({
+  zoom: 2
+})
+mapExampleTravel.setBackgroundColor({
+  color: "#4ac0ff"
+})
 //Add the first marker
-mapExampleTravel.addMarker(450,360)
-mapExampleTravel.setMarkerInfo(0, "Start","Your journey starts here!")
-mapExampleTravel.setMarkerColor(0,"#7FE96A")
+mapExampleTravel.addMarker({
+  top: 450,
+  left: 360
+})
+mapExampleTravel.setMarkerInfo({
+  markerIndex: 0,
+  title: "Start",
+  description: "Your journey starts here!"
+})
+mapExampleTravel.setMarkerColor({
+  markerIndex: 0,
+  color: "#4AAC37"
+})
 //Add the second marker
-mapExampleTravel.addMarkerApproxLongLat(35.6532,20.3832)
-mapExampleTravel.setMarkerInfo(1, "","Time to get on the cruise!")
-mapExampleTravel.setMarkerColor(1,"#E1E96A")
+mapExampleTravel.addMarkerApproxLongLat({
+  longitude: 35.6532,
+  latitude: 20.3832
+})
+mapExampleTravel.setMarkerInfo({
+  markerIndex: 1,
+  description: "Time to get on the cruise!"
+})
+mapExampleTravel.setMarkerColor({
+  markerIndex: 1,
+  color: "#E1E96A"
+})
 //Add the third marker
-mapExampleTravel.addMarker(200,260)
-mapExampleTravel.setMarkerInfo(2, "Pit Stop!","Time to get in the car!")
-mapExampleTravel.setMarkerColor(2,"#E1E96A")
+mapExampleTravel.addMarker({
+  top: 200,
+  left: 260
+})
+mapExampleTravel.setMarkerInfo({
+  markerIndex: 2,
+  title: "Pit Stop!",
+  description: "Time to get in the car!"
+})
+mapExampleTravel.setMarkerColor({
+  markerIndex: 2,
+  color: "#E1E96A"
+})
 //Add the destination marker
-mapExampleTravel.addMarker(150,160)
-mapExampleTravel.setMarkerInfo(3, "End","")
-mapExampleTravel.setMarkerColor(3,"#DB5567")
+mapExampleTravel.addMarker({
+  top: 150,
+  left: 160
+})
+mapExampleTravel.setMarkerInfo({
+  markerIndex: 3,
+  title: "End"
+})
+mapExampleTravel.setMarkerColor({
+  markerIndex: 3,
+  color: "#DB5567"
+})
 //Add the connections
-mapExampleTravel.addConnection(0,1,true,"airplane-icon", 10000)
-mapExampleTravel.setConnectionColor(0,"#FFFFFF60")
-mapExampleTravel.setConnectionInfo(0, "Plane travel","This flight will be quick!")
+mapExampleTravel.addConnection({
+  markerIndexStart: 0,
+  markerIndexEnd: 1,
+  animation: true,
+  iconId: "airplane-icon",
+  animationDuration: 10000,
+  rotateIcon: true, //Rotate the plane icon to face along the path
+  width: 8
+})
+mapExampleTravel.setConnectionColor({
+  connectionIndex: 0,
+  color: "#FFFFFFA1"
+})
+mapExampleTravel.setConnectionInfo({
+  connectionIndex: 0,
+  title: "Plane travel",
+  description: "This flight will be quick!"
+})
 
-mapExampleTravel.addConnection(1,2,true,"cruise-icon", 30000)
-mapExampleTravel.setConnectionColor(1,"#7789EBA6")
-mapExampleTravel.setConnectionInfo(1, "Cruise","Enjoy the sights, this will take a while")
+mapExampleTravel.addConnection({
+  markerIndexStart: 1,
+  markerIndexEnd: 2,
+  animation: true,
+  iconId: "cruise-icon",
+  animationDuration: 30000,
+  width: 2
+})
+mapExampleTravel.setConnectionColor({
+  connectionIndex: 1,
+  color: "#4F5FB6D2"
+})
+mapExampleTravel.setConnectionInfo({
+  connectionIndex: 1,
+  title: "Cruise",
+  description: "Enjoy the sights, this will take a while"
+})
 
-mapExampleTravel.addConnection(2,3,true,"car-icon", 35000)
-mapExampleTravel.setConnectionColor(2,"#EBC677A6")
-mapExampleTravel.setConnectionInfo(2, "Car","The final stretch!")
-</code></pre>
+mapExampleTravel.addConnection({
+  markerIndexStart: 2,
+  markerIndexEnd: 3,
+  animation: true,
+  iconId: "car-icon",
+  animationDuration: 35000
+})
+mapExampleTravel.setConnectionColor({
+  connectionIndex: 2,
+  color: "#EBC677C0"
+})
+mapExampleTravel.setConnectionInfo({
+  connectionIndex: 2,
+  title: "Car",
+  description: "The final stretch!"
+})</code></pre>
     <div id="map-example-travel"></div>
     <img id="car-icon" src="car.png" width="40px" height="40px">
     <img id="cruise-icon" src="cruise.png" width="40px" height="40px">
-    <img id="airplane-icon" src="airplane.png" width="40px" height="40px">    
- </body>
+    <img id="airplane-icon" src="airplane.png" width="40px" height="40px">
 
+    <div class="bottom-buttons">
+      <a href="./getting-started.html">
+        <div class="button">
+          ◄ Getting Started
+        </div>
+      </a>
+      <a href="./api-documentation.html">
+        <div class="button">
+          API Documentation	►
+        </div>
+      </a>
+    </div> 
+  </body>
 </html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Map Connections Library</title>
+    <link rel="shortcut icon" href="route.ico">
+
+    <link rel="stylesheet" href="./mapConnectionsLibrary/mapConnectionsStyles.css">
+    <script defer type="text/javascript" src='./mapConnectionsLibrary/mapConnections.js'></script>
+    
+    <link rel="stylesheet" href="index.css">
+    <script defer type="text/javascript" src='examples.js'></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>hljs.highlightAll(); hljs.configure({ignoreUnescapedHTML:true})</script>
+
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="./index.html" style="position: absolute; left:20px">
+        <img src="route.png" width:="50" height="50" class="header-image">
+      </a>
+      <a href="./index.html">
+        <div class="button button-navbar">
+          Home
+        </div>
+      </a>
+      <a href="./installation.html">
+        <div class="button button-navbar">
+          Installation
+        </div>
+      </a>
+      <a href="./getting-started.html">
+        <div class="button button-navbar">
+          Getting Started
+        </div>
+      </a>
+      <a href="./examples.html">
+        <div class="button button-navbar">
+          Examples
+        </div>
+      </a>
+      <a href="./api-documentation.html">
+        <div class="button button-navbar button-selected">
+          API Documentation
+        </div>
+      </a>
+    </div>
+    <div class="header-content">
+      <img src="route.png" width:="60" height="60" class="header-image">
+      <h1 class="header">Map Connections</h1>
+      <h2 class="subheader">API Documentation</h2>
+      <br>
+    </div>
+    <h1>Initializing The Map Class Object</h1>
+    <p>Create a div to attach the map to. Pass in the div id and width size (in pixels) when creating a map in your JavaScript. Create the map by creating a <code>MapConnections</code> object. </p>
+    <p>To get the CSS filter to change the maps image to any color, use this tool: <a href="https://codepen.io/sosuke/pen/Pjoqqp">https://codepen.io/sosuke/pen/Pjoqqp</a></p>
+<pre class="javascript"><code>new MapConnections({
+  divId: string,
+  width: int,
+  whiteMap: bool? = false,
+  mapType: string? = "outline" : "outline" | "outlineFilled" | "filled",
+  imgFilter: string? = "" : CSS Filter,
+})</code></pre>
+    <p><code>divId</code>: The div's ID from HTML to attach the map to.</p>
+    <p><code>width</code>: The width of the map (in pixels). The height will automatically be sized based on the ratio of the map.</p>
+    <p><code>whiteMap</code>: The color of the map image to white, if set to true.</p>
+    <p><code>mapType</code>: The type of map to use for the image. There are 3 different maps: <a target="_blank" href="https://map-connections-library.herokuapp.com/mapConnectionsLibrary/world-outline.svg">"outline"</a> | <a target="_blank" href="https://map-connections-library.herokuapp.com/mapConnectionsLibrary/world-filled-outline.svg">"outlineFilled"</a> | <a target="_blank" href="https://map-connections-library.herokuapp.com/mapConnectionsLibrary/world-filled.svg">"filled"</a></p>
+    <p><code>imgFilter</code>: The CSS filter to apply to the map image. Useful for changing the maps color. To get the CSS filter to change the maps image to any color, use this tool: <a href="https://codepen.io/sosuke/pen/Pjoqqp">https://codepen.io/sosuke/pen/Pjoqqp</a>.</p>
+    <div class="small-break"></div>
+    <h1>Functions</h1>
+    <p>All the functions available to use, called on the instance of the map class.</p>
+    <h2>Add Marker: <code>addMarker</code></h2>
+<pre class="javascript"><code>MapConnections.addMarker({
+  top: double,
+  left: double,
+  title: string?,
+  description: string?,
+  color: string? (color),
+})</code></pre>
+    <p><code>top</code>: The distance relative from the top of the map image to place the marker.</p>
+    <p><code>left</code>: The distance relative from the left of the map image to place the marker.</p>
+    <p><code>title</code>: The title to show when the user hovers over the marker, and to show in the legend.</p>
+    <p><code>description</code>: The description to show when the user hovers over the marker.</p>
+    <p><code>color</code>: The color to set the marker line to. Follows CSS standards.</p>
+    <div class="small-break"></div>
+    <h2>Add Marker At Longitude/Latitude: <code>addMarkerApproxLongLat</code></h2>
+<pre class="javascript"><code>MapConnections.addMarkerApproxLongLat({
+  longitude: double,
+  latitude: double,
+  title: string?,
+  description: string?,
+  color: string? (color),
+})</code></pre>
+    <p><code>longitude</code>: The latitude measurement for the marker point.</p>
+    <p><code>latitude</code>: The longitude measurement for the marker point.</p>
+    <p><code>title</code>: The title to show when the user hovers over the marker, and to show in the legend.</p>
+    <p><code>description</code>: The description to show when the user hovers over the marker.</p>
+    <p><code>color</code>: The color to set the marker line to. Follows CSS standards.</p>
+    <div class="small-break"></div>
+    <h2>Set Marker Info: <code>setMarkerInfo</code></h2>
+<pre class="javascript"><code>MapConnections.setMarkerInfo({
+  markerIndex: int,
+  title: string?,
+  description: string?,
+})</code></pre>
+    <p><code>markerIndex</code>: The index of the marker in the <code>marker</code> list of marker objects.</p>
+    <p><code>title</code>: The title to show when the user hovers over the marker, and to show in the legend.</p>
+    <p><code>description</code>: The description to show when the user hovers over the marker.</p>
+    <div class="small-break"></div>
+    <h2>Set Marker Color: <code>setMarkerColor</code></h2>
+<pre class="javascript"><code>MapConnections.setMarkerColor({
+  markerIndex: int,
+  color: string (color),
+})</code></pre>
+    <p><code>markerIndex</code>: The index of the marker in the <code>marker</code> list of marker objects.</p>
+    <p><code>color</code>: The color to set the marker line to. Follows CSS standards.</p>
+    <div class="small-break"></div>
+    <h2>Add Connection: <code>addConnection</code></h2>
+<pre class="javascript"><code>MapConnections.addConnection({
+  markerIndexStart: int,
+  markerIndexEnd: int,
+  animation: bool? = true,
+  iconId: string? : div ID for custom icon,
+  animationDuration: int? = 2500,
+  rotateIcon: bool? = false,
+  width: int? = 5,
+  title: string?,
+  description: string?,
+  color: string? (color),
+})</code></pre>
+    <p><code>markerIndexStart</code>: The first index as the starting point for the connection. The index of the marker in the <code>markers</code> list of marker objects.</p>
+    <p><code>markerIndexEnd</code>: The last index as the ending point for the connection. The index of the marker in the <code>markers</code> list of marker objects.</p>
+    <p><code>animation</code>: Determines if a dot or icon should be animated along the connection line.</p>
+    <p><code>iconId</code>: The custom icon div's ID from HTML.</p>
+    <p><code>animationDuration</code>: The length of the icons animation along the connection path.</p>
+    <p><code>rotateIcon</code>: Determines if the icon should be rotated to face along the direction of the connection line.</p>
+    <p><code>width</code>: How thick the connection line should be.</p>
+    <p><code>title</code>: The title to show when the user hovers over the connection, and to show in the legend.</p>
+    <p><code>description</code>: The description to show when the user hovers over the connection.</p>
+    <p><code>color</code>: The color to set the connection line to. Follows CSS standards.</p>
+    <div class="small-break"></div>
+    <h2>Set Connection Info: <code>setConnectionInfo</code></h2>
+<pre class="javascript"><code>MapConnections.setConnectionInfo({
+  connectionIndex: int,
+  title: string?,
+  description: string?,
+})</code></pre>
+    <p><code>connectionIndex</code>: The index of the connection in the <code>connections</code> list of connection objects.</p>
+    <p><code>title</code>: The title to show when the user hovers over the connection, and to show in the legend.</p>
+    <p><code>description</code>: The description to show when the user hovers over the connection.</p>
+    <div class="small-break"></div>
+    <h2>Set Connection Color: <code>setConnectionColor</code></h2>
+<pre class="javascript"><code>MapConnections.setConnectionColor({
+  connectionIndex: int,
+  color: string (color),
+})</code></pre>
+    <p><code>connectionIndex</code>: The index of the connection in the <code>connections</code> list of connection objects.</p>
+    <p><code>color</code>: The color to set the connection line to. Follows CSS standards.</p>
+    <div class="small-break"></div>
+    <h2>Set Connection Moving Dot Icon Color: <code>setConnectionIconColor</code></h2>
+<pre class="javascript"><code>MapConnections.setConnectionIconColor({
+  connectionIndex: int,
+  color: string (color),
+})</code></pre>
+    <p><code>connectionIndex</code>: The index of the connection in the <code>connections</code> list of connection objects.</p>
+    <p><code>color</code>: The color to set the icon to. Follows CSS standards.</p>
+    <div class="small-break"></div>
+    <h1>Legend</h1>
+    <p>Show a legend underneath the map. The labels are based off the titles specified for markers and connections. The colors are based off the colors specified for markers and connections.</p>
+    <h2>Show and Enable the Legend: <code>showLegend</code></h2>
+<pre class="javascript"><code>MapConnections.showLegend()</code></pre>
+    <h1>Animations</h1>
+    <h2>Start Animation: <code>startAnimation</code></h2>
+<pre class="javascript"><code>MapConnections.startAnimation({
+  connectionIndex: int,
+})</code></pre>
+    <p><code>connectionIndex</code>: The index of the connection in the <code>connections</code> list of connection objects.</p>
+    <div class="small-break"></div>
+    <h2>Stop Animation: <code>stopAnimation</code></h2>
+<pre class="javascript"><code>MapConnections.stopAnimation({
+  connectionIndex: int,
+})</code></pre>
+    <p><code>connectionIndex</code>: The index of the connection in the <code>connections</code> list of connection objects.</p>
+    <div class="small-break"></div>
+    <h1>Map Customization</h1>
+    <p>Map customizations should be set <i>before</i> any markers or connections are added.</p>
+    <h2>Map Background Color: <code>setBackgroundColor</code></h2>
+<pre class="javascript"><code>MapConnections.setBackgroundColor({
+  color: string (color),
+})</code></pre>
+    <p><code>color</code>: The color to set the background to. Follows CSS standards.</p>
+    <div class="small-break"></div>
+    <h2>Crop Size: <code>setCropSize</code></h2>
+<pre class="javascript"><code>MapConnections.setCropSize({
+  width: int,
+  height: int,
+})</code></pre>
+    <p><code>width</code>: The width to set the crop size to, of the map.</p>
+    <p><code>height</code>: The height to set the crop size to, of the map.</p>
+    <div class="small-break"></div>
+    <h2>Map Shift: <code>setMapShift</code></h2>
+<pre class="javascript"><code>MapConnections.setMapShift({
+  x: int,
+  y: int,
+})</code></pre>
+    <p><code>x</code>: The amount to shift by to the right.</p>
+    <p><code>y</code>: The amount to shift by to the bottom.</p>
+    <div class="small-break"></div>
+    <h2>Map Zoom: <code>setMapZoom</code></h2>
+<pre class="javascript"><code>MapConnections.setMapZoom({
+  zoom: double,
+})</code></pre>
+    <p><code>zoom</code>: The amount to zoom the map image in.</p>
+    <div class="small-break"></div>
+    <h1>CSS Styles</h1>
+    <p>These styles can be changed using CSS and the respective selector in HTML.</p>
+    <h2>Map Marker Icon: <code>.map-marker-icon</code></h2>
+    <p>The default styles are listed below, and can be changed by overwriting the respective CSS selector to style according to preferences.</p>
+<pre class="CSS"><code>.map-marker-icon{
+  transform: translateY(-14px) rotate(-45deg);
+  border-radius: 50% 50% 50% 0;
+  background-color: white;
+  width: 19px;
+  height: 19px;
+  box-shadow: 3px 2px 7px 2px #46464773;
+  text-align: center;
+  font-weight: 600;
+  text-indent: 0;
+}</code></pre>
+    <h2>Map Connection Line: <code>.map-marker-icon</code></h2>
+    <p>The default styles are listed below, and can be changed by overwriting the respective CSS selector to style according to preferences.</p>
+<pre class="CSS"><code>.map-connection{
+  height:5px;
+  background-color: #ffffff;
+  z-index: 1;
+  border-radius: 10px;
+  box-shadow: 3px 1px 7px 2px #46464773;
+  transition: transform 0.5s;
+  cursor: pointer;
+  text-indent: 0;
+  text-align: center;
+  font-weight: 600;
+  text-shadow: 0px 0px 4px white;
+  font-size: 20px;
+}</code></pre>
+    <h2>Marker Hover Container: <code>.map-marker-label</code></h2>
+    <p>The default styles are listed below, and can be changed by overwriting the respective CSS selector to style according to preferences.</p>
+<pre class="CSS"><code>.map-marker-label{
+  pointer-events: none;
+  background-color: #ffffff;
+  color: black;
+  text-align: center;
+  border-radius: 7px;
+  font-size: 20px;
+  position: absolute;
+  z-index: 5;
+  text-indent: 0;
+  transition: opacity 0.5s;
+  transform: translateX(calc(-50% + 10px)) translateY(-50%) scale(0.5);
+  width: 200px;
+  padding:5px;
+  opacity:0;
+}</code></pre>
+<pre class="CSS"><code>.map-marker-label p{
+  margin:10px;
+  margin-top: 0px;
+}</code></pre>
+<pre class="CSS"><code>.map-marker-label h3{
+  margin:10px;
+  margin-bottom: 5px;
+}</code></pre>
+</code></pre>
+    <h2>Connection Hover Container: <code>#map-connection-popup</code></h2>
+    <p>The default styles are listed below, and can be changed by overwriting the respective CSS selector to style according to preferences.</p>
+<pre class="CSS"><code>#map-connection-popup{
+  pointer-events: none;
+  background-color: #ffffff;
+  color: black;
+  text-align: center;
+  border-radius: 7px;
+  position: absolute;
+  z-index: 5;
+  text-indent: 0;
+  padding: 5px;
+  box-shadow: 3px 1px 7px 2px #46464773;
+  opacity: 0;
+  transition: opacity 0.25s;
+  font-size: 16px;
+  max-width: 400px;
+}</code></pre>
+<pre class="CSS"><code>#map-connection-popup p{
+  margin:10px;
+  margin-top: 0px;
+}</code></pre>
+<pre class="CSS"><code>#map-connection-popup h3{
+  margin:10px;
+  margin-bottom: 5px;
+}</code></pre>
+    <h2>Legend Container: <code>.legend-box</code></h2>
+    <p>The default styles are listed below, and can be changed by overwriting the respective CSS selector to style according to preferences.</p>
+<pre class="CSS"><code>.legend-box{
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 2px 5px 5px 2px #46464748;
+  padding:15px;
+  display: inline-block;
+}</code></pre>
+
+    <h1>Debugging Tools</h1>
+    <h2>Markers List: <code>markers</code></h2>
+    <p>To get a list of all the generated marker objects, access the class variable <code>markers</code> (list of objects).</p>
+    <pre class="javascript"><code>MapConnections.markers</code></pre>
+    <h2>Connections List: <code>connections</code></h2>
+    <p>To get a list of all the generated connection objects, access the class variable <code>connections</code>  (list of objects).</p>
+    <pre class="javascript"><code>MapConnections.connections</code></pre>
+    <h2>Show All Marker Indices: <code>showAllMarkerIndices</code></h2>
+<pre class="javascript"><code>MapConnections.showAllMarkerIndices()</code></pre>
+    <h2>Show Marker Index: <code>showMarkerIndex</code></h2>
+<pre class="javascript"><code>MapConnections.showMarkerIndex({
+  markerIndex: int,
+})</code></pre>
+    <p><code>markerIndex</code>: The index of the marker in the <code>markers</code> list of marker objects.</p>
+    <div class="small-break"></div>
+    <h2>Show All Connection Indices: <code>showAllConnectionIndices</code></h2>
+<pre class="javascript"><code>MapConnections.showAllConnectionIndices()</code></pre>
+    <h2>Show Connection Index: <code>showConnectionIndex</code></h2>
+<pre class="javascript"><code>MapConnections.showConnectionIndex({
+  connectionIndex: int,
+})</code></pre>
+    <p><code>connectionIndex</code>: The index of the connection in the <code>connections</code> list of connection objects.</p>
+    <div class="small-break"></div>
+    <h2>Hide All Marker Indices: <code>hideAllMarkerIndices</code></h2>
+<pre class="javascript"><code>MapConnections.hideAllMarkerIndices()</code></pre>
+    <h2>Hide Marker Index: <code>hideMarkerIndex</code></h2>
+<pre class="javascript"><code>MapConnections.hideMarkerIndex({
+  markerIndex: int,
+})</code></pre>
+    <p><code>markerIndex</code>: The index of the marker in the <code>markers</code> list of marker objects.</p>
+    <div class="small-break"></div>
+    <h2>Hide All Connection Indices: <code>hideAllConnectionIndices</code></h2>
+<pre class="javascript"><code>MapConnections.hideAllConnectionIndices()</code></pre>
+    <h2>Hide Connection Index: <code>hideConnectionIndex</code></h2>
+<pre class="javascript"><code>MapConnections.hideConnectionIndex({
+  connectionIndex: int,
+})</code></pre>
+    <p><code>connectionIndex</code>: The index of the connection in the <code>connections</code> list of connection objects.</p>
+    <div class="bottom-buttons">
+      <a href="./examples.html">
+        <div class="button">
+          ◄ Examples
+        </div>
+      </a>
+    </div> 
+  </body>
+
+</html>

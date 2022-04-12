@@ -24,3 +24,6 @@ Documentation available on the demo page: https://map-connections-library.heroku
 * Airplane icon from Freepik https://www.flaticon.com
 * Car icon (modified) from Freepik https://www.flaticon.com
 * Cruise icon (modified) from Freepik https://www.flaticon.com
+
+# Other Libraries Used
+* HighlightJS from https://highlightjs.org/
