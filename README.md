@@ -40,9 +40,9 @@ map.addConnection({
   description: "Some description here."
 })
 ```
-Starter Guide available here: https://map-connections-library.herokuapp.com/api-documentation.html
+Starter Guide available here: https://map-connections-library.herokuapp.com/starter-guide.html
 
-API Documentation available here: https://map-connections-library.herokuapp.com/starter-guide.html
+API Documentation available here: https://map-connections-library.herokuapp.com/api-documentation.html
 
 # Other Information
 ## Sources
