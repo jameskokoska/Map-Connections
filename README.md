@@ -1,21 +1,21 @@
 # Map Connections
 <p align="center">
-  <a href="https://map-connections-library.herokuapp.com/index.html">
-    <img src="./pub/route.png" width=150/>
+  <a href="https://jameskokoska.github.io/Map-Connections/">
+    <img src="./docs/route.png" width=150/>
   </a>
 </p>
 
 
 # Getting Started
-The libraries starter guide, examples, and documentation can be viewed here: https://map-connections-library.herokuapp.com/index.html
+The libraries starter guide, examples, and documentation can be viewed here: hhttps://jameskokoska.github.io/Map-Connections/
 
 ## Installing the Library
 ### Add the Library and Depend on it
 In the `head` tag in your HTML, import the <i>Map Connections</i> library and CSS styles:
 ```html
 <head>
-  <link rel="stylesheet" href="https://raw.githubusercontent.com/jameskokoska/Map-Connections/main/pub/mapConnectionsLibrary/mapConnectionsStyles.css">
-  <script defer type="text/javascript" src='https://raw.githubusercontent.com/jameskokoska/Map-Connections/main/pub/mapConnectionsLibrary/mapConnections.js'></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jameskokoska/Map-Connections@main/pub/mapConnectionsLibrary/mapConnectionsStyles.css">
+  <script defer type="text/javascript" src='https://cdn.jsdelivr.net/gh/jameskokoska/Map-Connections@main/pub/mapConnectionsLibrary/mapConnections.js'></script>
   ...
 </head>
 ```
@@ -40,9 +40,9 @@ map.addConnection({
   description: "Some description here."
 })
 ```
-Starter Guide available here: https://map-connections-library.herokuapp.com/starter-guide.html
+Starter Guide available here: https://jameskokoska.github.io/Map-Connections/starter-guide.html
 
-API Documentation available here: https://map-connections-library.herokuapp.com/api-documentation.html
+API Documentation available here: https://jameskokoska.github.io/Map-Connections/api-documentation.html
 
 # Other Information
 ## Sources
@@ -60,3 +60,5 @@ API Documentation available here: https://map-connections-library.herokuapp.com/
 * This library has moved away from Heroku from due to recent changes: https://blog.heroku.com/next-chapter
 * The library is available on GitHub: https://raw.githubusercontent.com/jameskokoska/Map-Connections/main/pub/mapConnectionsLibrary/mapConnections.js
 * With the styles: https://raw.githubusercontent.com/jameskokoska/Map-Connections/main/pub/mapConnectionsLibrary/mapConnectionsStyles.css
+* To use in a project however, you cannot use GitHub as a CDN since GitHub provides `text/plain`, not `application/javascript` or `text/javascript`
+* As a work around, you can use https://www.jsdelivr.com/rawgit
