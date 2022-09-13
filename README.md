@@ -14,8 +14,8 @@ The libraries starter guide, examples, and documentation can be viewed here: htt
 In the `head` tag in your HTML, import the <i>Map Connections</i> library and CSS styles:
 ```html
 <head>
-  <link rel="stylesheet" href="https://map-connections-library.herokuapp.com/mapConnectionsLibrary/mapConnectionsStyles.css">
-  <script defer type="text/javascript" src='https://map-connections-library.herokuapp.com/mapConnectionsLibrary/mapConnections.js'></script>
+  <link rel="stylesheet" href="https://raw.githubusercontent.com/jameskokoska/Map-Connections/main/pub/mapConnectionsLibrary/mapConnectionsStyles.css">
+  <script defer type="text/javascript" src='https://raw.githubusercontent.com/jameskokoska/Map-Connections/main/pub/mapConnectionsLibrary/mapConnections.js'></script>
   ...
 </head>
 ```
@@ -56,6 +56,7 @@ API Documentation available here: https://map-connections-library.herokuapp.com/
 ## Other Libraries Used
 * HighlightJS from https://highlightjs.org/ for syntax highlighting
 
-## Heroku
-* The library is available on Heroku: https://map-connections-library.herokuapp.com/mapConnectionsLibrary/mapConnections.js
-* With the styles: https://map-connections-library.herokuapp.com/mapConnectionsLibrary/mapConnectionsStyles.css
+## GitHub Hosting
+* This library has moved away from Heroku from due to recent changes: https://blog.heroku.com/next-chapter
+* The library is available on GitHub: https://raw.githubusercontent.com/jameskokoska/Map-Connections/main/pub/mapConnectionsLibrary/mapConnections.js
+* With the styles: https://raw.githubusercontent.com/jameskokoska/Map-Connections/main/pub/mapConnectionsLibrary/mapConnectionsStyles.css
