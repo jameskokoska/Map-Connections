@@ -7,7 +7,7 @@
 
 
 # Getting Started
-The libraries starter guide, examples, and documentation can be viewed here: hhttps://jameskokoska.github.io/Map-Connections/
+The libraries starter guide, examples, and documentation can be viewed here: https://jameskokoska.github.io/Map-Connections/
 
 ## Installing the Library
 ### Add the Library and Depend on it
