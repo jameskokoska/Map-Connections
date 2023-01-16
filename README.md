@@ -14,8 +14,8 @@ The libraries starter guide, examples, and documentation can be viewed here: htt
 In the `head` tag in your HTML, import the <i>Map Connections</i> library and CSS styles:
 ```html
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jameskokoska/Map-Connections@main/pub/mapConnectionsLibrary/mapConnectionsStyles.css">
-  <script defer type="text/javascript" src='https://cdn.jsdelivr.net/gh/jameskokoska/Map-Connections@main/pub/mapConnectionsLibrary/mapConnections.js'></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jameskokoska/Map-Connections@latest/pub/mapConnectionsLibrary/mapConnectionsStyles.css">
+  <script defer type="text/javascript" src='https://cdn.jsdelivr.net/gh/jameskokoska/Map-Connections@latest/pub/mapConnectionsLibrary/mapConnections.js'></script>
   ...
 </head>
 ```
