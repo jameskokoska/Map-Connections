@@ -27,13 +27,13 @@
       }
       
       if(args.mapType==='outline'){
-        mapImg.src = "https://map-connections-library.herokuapp.com/mapConnectionsLibrary/world-outline.svg"
+        mapImg.src = "https://raw.githubusercontent.com/jameskokoska/Map-Connections/main/pub/mapConnectionsLibrary/world-outline.svg"
       } else if (args.mapType==='outlineFilled') {
-        mapImg.src = "https://map-connections-library.herokuapp.com/mapConnectionsLibrary/world-filled-outline.svg"
+        mapImg.src = "https://raw.githubusercontent.com/jameskokoska/Map-Connections/main/pub/mapConnectionsLibrary/world-filled-outline.svg"
       } else if (args.mapType==='filled'){
-        mapImg.src = "https://map-connections-library.herokuapp.com/mapConnectionsLibrary/world-filled.svg"
+        mapImg.src = "https://raw.githubusercontent.com/jameskokoska/Map-Connections/main/pub/mapConnectionsLibrary/world-filled.svg"
       } else {
-        mapImg.src = "https://map-connections-library.herokuapp.com/mapConnectionsLibrary/world-outline.svg"
+        mapImg.src = "https://raw.githubusercontent.com/jameskokoska/Map-Connections/main/pub/mapConnectionsLibrary/world-outline.svg"
       }
 
       if(args.imgFilter){
